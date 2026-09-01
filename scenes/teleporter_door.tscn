@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://njsq66r25s7j"]
+
+[ext_resource type="Script" uid="uid://827hefu3dlp6" path="res://scripts/teleporter_door.gd" id="1_blllr"]
+[ext_resource type="Texture2D" uid="uid://bifnawtbmfiyx" path="res://assets/sprites/Teleporter_door.png" id="1_odefg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blllr"]
+size = Vector2(20, 28)
+
+[node name="Teleporter_door" type="Area2D" unique_id=1903251345]
+script = ExtResource("1_blllr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=272829911]
+shape = SubResource("RectangleShape2D_blllr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=758707420]
+texture = ExtResource("1_odefg")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1533129972]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
