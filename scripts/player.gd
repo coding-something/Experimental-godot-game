@@ -24,6 +24,6 @@ func _physics_process(delta: float) -> void:
 
 func trigger_teleport_cooldown() -> void:
 	is_teleport_cooldown_active = true
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.3).timeout
 	is_teleport_cooldown_active = false
 	
