@@ -21,9 +21,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
-func trigger_teleport_cooldown() -> void:
+# Await exit door animation to finish, then allow teleporting
+func trigger_teleport_cooldown(exit_door_animated_sprite: AnimatedSprite2D) -> void:
 	is_teleport_cooldown_active = true
-	await get_tree().create_timer(0.3).timeout
+	await exit_door_animated_sprite.animation_finished
 	is_teleport_cooldown_active = false
 	
