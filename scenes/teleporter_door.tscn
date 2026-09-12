@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://827hefu3dlp6" path="res://scripts/teleporter_door.gd" id="1_blllr"]
 [ext_resource type="Texture2D" uid="uid://c08sar16s4fvw" path="res://assets/sprites/Teleporter_door_spritesheet.png" id="2_blllr"]
+[ext_resource type="AudioStream" uid="uid://ndb6kgcfhh0v" path="res://assets/sounds/door_open.mp3" id="3_lvwfv"]
+[ext_resource type="AudioStream" uid="uid://r62geuuc3ie" path="res://assets/sounds/door_close.mp3" id="4_5kgv6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blllr"]
 size = Vector2(20, 28)
@@ -63,7 +65,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"close",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -88,7 +90,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"open",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -111,6 +113,14 @@ shape = SubResource("RectangleShape2D_blllr")
 sprite_frames = SubResource("SpriteFrames_kjlk3")
 animation = &"close"
 autoplay = "closed"
+
+[node name="Open_sound" type="AudioStreamPlayer2D" parent="." unique_id=702020402]
+stream = ExtResource("3_lvwfv")
+max_distance = 1000.0
+
+[node name="Close_sound" type="AudioStreamPlayer2D" parent="." unique_id=891509019]
+stream = ExtResource("4_5kgv6")
+max_distance = 1000.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
