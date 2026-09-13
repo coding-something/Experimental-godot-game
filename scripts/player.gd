@@ -20,10 +20,3 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 
 	move_and_slide()
-
-# Await exit door animation to finish, then allow teleporting
-func trigger_teleport_cooldown(exit_door_animated_sprite: AnimatedSprite2D) -> void:
-	is_teleport_cooldown_active = true
-	await exit_door_animated_sprite.animation_finished
-	is_teleport_cooldown_active = false
-	

@@ -55,6 +55,5 @@ func teleport_player() -> void:
 	enter()
 	await animated_sprite.animation_finished
 	player_node.global_position = exit_position
-	player_node.trigger_teleport_cooldown(exit_door_animated_sprite)
 	exit()
 	
