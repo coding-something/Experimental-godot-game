@@ -1,5 +1,4 @@
 extends CharacterBody2D
-
 const SPEED = 300.0
 var is_teleport_cooldown_active : bool = false
 
@@ -13,7 +12,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = horizontal_direction * SPEED
 	else:
 		velocity.x = 0
-		
+
 	if vertical_direction:
 		velocity.y = vertical_direction * SPEED
 	else:
