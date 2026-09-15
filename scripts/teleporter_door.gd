@@ -1,7 +1,6 @@
 extends Area2D
 @export var exit_door : Area2D
 @onready var marker_2d: Marker2D = $Marker2D
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var open_sound: AudioStreamPlayer2D = $Open_sound
 @onready var close_sound: AudioStreamPlayer2D = $Close_sound
@@ -12,7 +11,7 @@ var door_cooldown_active : bool = false
 func _ready() -> void:
 	set_process(false)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if door_cooldown_active == false and Input.is_action_just_pressed("interact") == true:
 		teleport_player()
 
@@ -42,6 +41,7 @@ func exit() -> void:
 	#This is the value you get after subtracting close sound length from close animation length
 	await get_tree().create_timer(0.215).timeout
 	exit_door.close_sound.play()
+	await exit_door.animated_sprite.animation_finished
 	animated_sprite.play("closed")
 	door_cooldown_active = false
 	exit_door.door_cooldown_active = false
