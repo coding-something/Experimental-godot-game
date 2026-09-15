@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://djdjthyuwwjly"]
+
+[ext_resource type="PackedScene" uid="uid://ltlnxi5akhft" path="res://scenes/player.tscn" id="1_l0ion"]
+[ext_resource type="FontFile" uid="uid://31647dxjwj63" path="res://assets/font/PixelOperator8.ttf" id="2_pnnik"]
+[ext_resource type="PackedScene" uid="uid://y7p5m423uim4" path="res://scenes/world_border.tscn" id="3_syjh8"]
+[ext_resource type="PackedScene" uid="uid://b7b1eglnky7ip" path="res://scenes/level_switch_door.tscn" id="4_l0ion"]
+
+[node name="Lvl_2" type="Node2D" unique_id=303934893]
+
+[node name="Player" parent="." unique_id=1767513436 instance=ExtResource("1_l0ion")]
+
+[node name="Text" type="Node" parent="." unique_id=1064726785]
+
+[node name="Area_txt" type="Label" parent="Text" unique_id=2002872655]
+anchors_preset = -1
+anchor_left = -0.054
+anchor_top = -0.062000003
+anchor_right = -0.054
+anchor_bottom = -0.062000003
+offset_left = -21.792
+offset_top = -38.823997
+offset_right = 146.20801
+offset_bottom = -3.8239975
+theme_override_fonts/font = ExtResource("2_pnnik")
+theme_override_font_sizes/font_size = 16
+text = "Welcome to
+level 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="End_txt" type="Label" parent="Text" unique_id=893553677]
+anchors_preset = -1
+anchor_left = -0.054
+anchor_top = -0.062000003
+anchor_right = -0.054
+anchor_bottom = -0.062000003
+offset_left = 79.208
+offset_top = 6.1760025
+offset_right = 194.20801
+offset_bottom = 40.175995
+theme_override_fonts/font = ExtResource("2_pnnik")
+theme_override_font_sizes/font_size = 8
+text = "That's it for this
+\"game\" as of now
+:)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="World_borders" type="Node" parent="." unique_id=1227953273]
+
+[node name="World_border_bottom" parent="World_borders" unique_id=2075623675 instance=ExtResource("3_syjh8")]
+position = Vector2(0, 97)
+
+[node name="World_border_left" parent="World_borders" unique_id=1671512060 instance=ExtResource("3_syjh8")]
+position = Vector2(-144, -2)
+rotation = 1.5707964
+
+[node name="World_border_right" parent="World_borders" unique_id=1926808247 instance=ExtResource("3_syjh8")]
+position = Vector2(143, -1)
+rotation = 4.712389
+
+[node name="World_border_up" parent="World_borders" unique_id=1728767657 instance=ExtResource("3_syjh8")]
+position = Vector2(0, -99)
+rotation = 3.1415927
+
+[node name="Doors" type="Node" parent="." unique_id=419467490]
+
+[node name="Level_switch_door" parent="Doors" unique_id=1903251345 instance=ExtResource("4_l0ion")]
+position = Vector2(0, -1)
+is_exit_door = true
