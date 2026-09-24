@@ -1,10 +1,21 @@
-[gd_scene format=3 uid="uid://sa0axpby2imm"]
+[gd_scene format=4 uid="uid://sa0axpby2imm"]
 
 [ext_resource type="PackedScene" uid="uid://ltlnxi5akhft" path="res://scenes/player.tscn" id="1_hwdor"]
 [ext_resource type="FontFile" uid="uid://31647dxjwj63" path="res://assets/font/PixelOperator8.ttf" id="2_53anu"]
 [ext_resource type="PackedScene" uid="uid://y7p5m423uim4" path="res://scenes/world_border.tscn" id="3_u8ilr"]
 [ext_resource type="PackedScene" uid="uid://njsq66r25s7j" path="res://scenes/teleporter_door.tscn" id="4_6a3rq"]
 [ext_resource type="PackedScene" uid="uid://b7b1eglnky7ip" path="res://scenes/level_switch_door.tscn" id="5_odbgv"]
+[ext_resource type="Texture2D" uid="uid://dj24fhvvbc72p" path="res://assets/sprites/tilesheet.png" id="6_fmrvw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcf81"]
+texture = ExtResource("6_fmrvw")
+texture_region_size = Vector2i(25, 25)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_odbgv"]
+tile_size = Vector2i(25, 25)
+sources/0 = SubResource("TileSetAtlasSource_bcf81")
 
 [node name="Lvl_1" type="Node2D" unique_id=303934893]
 
@@ -106,3 +117,10 @@ exit_door = NodePath("../Teleporter_door")
 
 [node name="Level_switch_door" parent="Doors" unique_id=1451328008 instance=ExtResource("5_odbgv")]
 position = Vector2(604, 0)
+
+[node name="Background_tilemap" type="Node" parent="." unique_id=2133742993]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Background_tilemap" unique_id=2002829785]
+z_index = -1
+tile_map_data = PackedByteArray("AAD///3/AAAAAAAAAAD6/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD6/wMAAAAAAAAAAAD9/wIAAAABAAAAAAD+/wIAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD+/wMAAAABAAAAAAD9/wMAAAABAAAAAAADAAIAAAABAAAAAAABAAIAAAAAAAAAAAD8/wIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_odbgv")
